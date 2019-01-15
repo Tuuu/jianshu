@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
-
+import Header from './component/header'
+import { GlobalStyle } from './style'
 class App extends Component {
   render () {
-    return <div>Hello World</div>
+    return (
+      <>
+        <GlobalStyle />
+        <Header />
+      </>
+    )
   }
 }
 
