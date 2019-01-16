@@ -1,43 +1,63 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { CSSTransition } from 'react-transition-group'
+import { connect } from 'react-redux'
 import { HeaderWrapper, Logo, NavItem, StyleMode, LoginIn, SignUp, Write, Search, SearchWrapper } from './style'
 
-class Header extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      focus: false,
-    }
-    this.handleToggle = this.handleToggle.bind(this)
-  }
-  handleToggle () {
-    this.setState({
-      focus: !this.state.focus,
-    })
-  }
-  render () {
-    return (
-      <HeaderWrapper>
-        <Logo href="/" />
-        <nav className="nav-ct">
-          <NavItem className="active">首页</NavItem>
-          <NavItem>下载App</NavItem>
-          <CSSTransition in={this.state.focus} timeout={300} classNames="focused">
-            <SearchWrapper>
-              <Search placeholder="搜索" onFocus={this.handleToggle} onBlur={this.handleToggle} />
-              <i className={this.state.focus ? 'iconfont focused' : 'iconfont'}>&#xe648;</i>
-            </SearchWrapper>
-          </CSSTransition>
-        </nav>
-        <StyleMode className="btn">Aa</StyleMode>
-        <LoginIn className="btn">登录</LoginIn>
-        <SignUp className="btn">注册</SignUp>
-        <Write className="btn">
-          <i className="iconfont">&#xe61b;</i>写文章
-        </Write>
-      </HeaderWrapper>
-    )
+const Header = props => {
+  return (
+    <HeaderWrapper>
+      <Logo href="/" />
+      <nav className="nav-ct">
+        <NavItem className="active">首页</NavItem>
+        <NavItem>下载App</NavItem>
+        <CSSTransition in={props.focus} timeout={300} classNames="focused">
+          <SearchWrapper>
+            <Search placeholder="搜索" onFocus={props.handleFocus} onBlur={props.handleBlur} />
+            <i className={props.focus ? 'iconfont focused' : 'iconfont'}>&#xe648;</i>
+          </SearchWrapper>
+        </CSSTransition>
+      </nav>
+      <StyleMode className="btn">Aa</StyleMode>
+      <LoginIn className="btn">登录</LoginIn>
+      <SignUp className="btn">注册</SignUp>
+      <Write className="btn">
+        <i className="iconfont">&#xe61b;</i>写文章
+      </Write>
+    </HeaderWrapper>
+  )
+}
+
+const mapStateToProps = state => {
+  return {
+    focus: state.focus,
   }
 }
 
-export default Header
+const mapDispatchToProps = dispatch => {
+  return {
+    handleFocus () {
+      const action = {
+        type: 'SEARCH_FOCUS',
+      }
+      dispatch(action)
+    },
+    handleBlur () {
+      const action = {
+        type: 'SEARCH_BLUR',
+      }
+      dispatch(action)
+    },
+  }
+}
+
+Header.propTypes = {
+  focus: PropTypes.bool,
+  handleFocus: PropTypes.func,
+  handleBlur: PropTypes.func,
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header)
