@@ -1,14 +1,16 @@
+import * as actionTypes from './actionTypes'
+
 const defaultState = {
   focus: false,
 }
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case 'SEARCH_FOCUS':
+    case actionTypes.SEARCH_FOCUS:
       return {
         focus: true,
       }
-    case 'SEARCH_BLUR':
+    case actionTypes.SEARCH_BLUR:
       return {
         focus: false,
       }

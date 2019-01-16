@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { CSSTransition } from 'react-transition-group'
 import { connect } from 'react-redux'
 import { HeaderWrapper, Logo, NavItem, StyleMode, LoginIn, SignUp, Write, Search, SearchWrapper } from './style'
+import { actionCreators } from './store'
 
 const Header = props => {
   return (
@@ -37,16 +38,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     handleFocus () {
-      const action = {
-        type: 'SEARCH_FOCUS',
-      }
-      dispatch(action)
+      dispatch(actionCreators.searchFocus())
     },
     handleBlur () {
-      const action = {
-        type: 'SEARCH_BLUR',
-      }
-      dispatch(action)
+      dispatch(actionCreators.searchBlur())
     },
   }
 }
