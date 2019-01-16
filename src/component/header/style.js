@@ -51,21 +51,43 @@ const NavItem = styled.a`
 
 const SearchWrapper = styled.div`
   position: relative;
+  margin-left: 15px;
+  width: 160px;
   & i {
     position: absolute;
+    padding: 4px 5px 4px 5px;
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
     color: #999;
+    border-radius: 50%;
     cursor: pointer;
+    &.focused {
+      color: #fff;
+      background: #777;
+    }
+  }
+  &.focused-enter {
+    transition: all .3s ease-in-out;
+  }
+  &.focused-enter-active {
+    width: 240px;
+  }
+  &.focused-enter-done {
+    width: 240px;
+  }
+  &.focused-exit {
+    transition: all .2s ease-in-out;
+  }
+  &.focused-exit-done {
+    width: 160px;
   }
 `
 
 const Search = styled.input`
-  margin-left: 15px;
   padding-left: 20px;
   padding-right: 40px;
-  width: 160px;
+  width: 100%;
   height: 38px;
   font-size: 14px;
   color: #333;
