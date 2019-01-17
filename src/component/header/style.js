@@ -68,7 +68,7 @@ const SearchWrapper = styled.div`
     }
   }
   &.focused-enter {
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
   &.focused-enter-active {
     width: 240px;
@@ -77,7 +77,7 @@ const SearchWrapper = styled.div`
     width: 240px;
   }
   &.focused-exit {
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
   &.focused-exit-done {
     width: 160px;
@@ -98,6 +98,73 @@ const Search = styled.input`
   &::placeholder {
     font-size: 14px;
     color: #999;
+  }
+`
+
+const SearchTips = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 10px;
+  padding: 20px 20px 10px;
+  width: 250px;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid #f0f0f0;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    bottom: 99%;
+    width: 0;
+    height: 0;
+    border: 12px solid transparent;
+    border-bottom-color: #fff;
+  }
+`
+
+const SearchTrending = styled.div`
+  & .trending-title {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  & .trending-wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+`
+
+const SearchTrendingTitle = styled.span`
+  font-size: 14px;
+  color: #969696;
+  font-weight: bold;
+`
+
+const SearchTrendingSwitch = styled.span`
+  font-size: 13px;
+  color: #969696;
+  cursor: pointer;
+  &:hover {
+    color: #2f2f2f;
+  }
+`
+
+const SearchTrendingItem = styled.a`
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 2px 6px;
+  display: block;
+  flex-shrink: 0;
+  font-size: 12px;
+  color: #787878;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  cursor: pointer;
+  &:hover {
+    color: #333;
+    border-color: #b4b4b4;
   }
 `
 
@@ -137,4 +204,19 @@ const Write = styled.a`
   }
 `
 
-export { HeaderWrapper, Logo, NavItem, StyleMode, LoginIn, SignUp, Write, Search, SearchWrapper }
+export {
+  HeaderWrapper,
+  Logo,
+  NavItem,
+  StyleMode,
+  LoginIn,
+  SignUp,
+  Write,
+  Search,
+  SearchWrapper,
+  SearchTips,
+  SearchTrending,
+  SearchTrendingTitle,
+  SearchTrendingSwitch,
+  SearchTrendingItem,
+}

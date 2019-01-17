@@ -2,7 +2,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { CSSTransition } from 'react-transition-group'
 import { connect } from 'react-redux'
-import { HeaderWrapper, Logo, NavItem, StyleMode, LoginIn, SignUp, Write, Search, SearchWrapper } from './style'
+import {
+  HeaderWrapper,
+  Logo,
+  NavItem,
+  StyleMode,
+  LoginIn,
+  SignUp,
+  Write,
+  Search,
+  SearchWrapper,
+  SearchTips,
+  SearchTrending,
+  SearchTrendingTitle,
+  SearchTrendingSwitch,
+  SearchTrendingItem,
+} from './style'
 import { actionCreators } from './store'
 
 const Header = props => {
@@ -16,6 +31,25 @@ const Header = props => {
           <SearchWrapper>
             <Search placeholder="搜索" onFocus={props.handleFocus} onBlur={props.handleBlur} />
             <i className={props.focus ? 'iconfont focused' : 'iconfont'}>&#xe648;</i>
+            {props.focus ? (
+              <SearchTips>
+                <SearchTrending>
+                  <div className="trending-title">
+                    <SearchTrendingTitle>热门搜索</SearchTrendingTitle>
+                    <SearchTrendingSwitch>换一批</SearchTrendingSwitch>
+                  </div>
+                  <div className="trending-wrap">
+                    <SearchTrendingItem>小程序</SearchTrendingItem>
+                    <SearchTrendingItem>区块链</SearchTrendingItem>
+                    <SearchTrendingItem>VUE</SearchTrendingItem>
+                    <SearchTrendingItem>PHP</SearchTrendingItem>
+                    <SearchTrendingItem>教育</SearchTrendingItem>
+                  </div>
+                </SearchTrending>
+              </SearchTips>
+            ) : (
+              ''
+            )}
           </SearchWrapper>
         </CSSTransition>
       </nav>
