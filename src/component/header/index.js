@@ -31,7 +31,7 @@ const Header = props => {
 
 const mapStateToProps = state => {
   return {
-    focus: state.header.focus, // reducer 拆分
+    focus: state.header.get('focus'), // reducer 拆分
   }
 }
 
