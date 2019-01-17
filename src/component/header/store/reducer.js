@@ -3,6 +3,7 @@ import { fromJS } from 'immutable'
 
 const defaultState = fromJS({
   focus: false,
+  searchTrendingList: [],
 })
 
 export default (state = defaultState, action) => {
@@ -11,8 +12,9 @@ export default (state = defaultState, action) => {
       return state.set('focus', true)
     case actionTypes.SEARCH_BLUR:
       return state.set('focus', false)
+    case actionTypes.SEARCH_TRENDING:
+      return state.set('searchTrendingList', action.data)
     default:
-      break
+      return state
   }
-  return state
 }

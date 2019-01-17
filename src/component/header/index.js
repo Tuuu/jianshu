@@ -39,11 +39,9 @@ const Header = props => {
                     <SearchTrendingSwitch>换一批</SearchTrendingSwitch>
                   </div>
                   <div className="trending-wrap">
-                    <SearchTrendingItem>小程序</SearchTrendingItem>
-                    <SearchTrendingItem>区块链</SearchTrendingItem>
-                    <SearchTrendingItem>VUE</SearchTrendingItem>
-                    <SearchTrendingItem>PHP</SearchTrendingItem>
-                    <SearchTrendingItem>教育</SearchTrendingItem>
+                    {props.searchTrendingList.map(item => {
+                      return <SearchTrendingItem key={item}>{item}</SearchTrendingItem>
+                    })}
                   </div>
                 </SearchTrending>
               </SearchTips>
@@ -66,12 +64,14 @@ const Header = props => {
 const mapStateToProps = state => {
   return {
     focus: state.getIn(['header', 'focus']), // reducer 拆分
+    searchTrendingList: state.getIn(['header', 'searchTrendingList']).toJS(), // immutable 类型转换成普通类型
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     handleFocus () {
+      dispatch(actionCreators.getSearchTrending())
       dispatch(actionCreators.searchFocus())
     },
     handleBlur () {
@@ -84,6 +84,7 @@ Header.propTypes = {
   focus: PropTypes.bool,
   handleFocus: PropTypes.func,
   handleBlur: PropTypes.func,
+  searchTrendingList: PropTypes.array,
 }
 
 export default connect(
