@@ -31,7 +31,11 @@ const Header = props => {
         <NavItem>下载App</NavItem>
         <CSSTransition in={props.focus} timeout={300} classNames="focused">
           <SearchWrapper>
-            <Search placeholder="搜索" onFocus={props.handleFocus} onBlur={props.handleBlur} />
+            <Search
+              placeholder="搜索"
+              onFocus={() => props.handleFocus(props.searchTrendingList)}
+              onBlur={props.handleBlur}
+            />
             <i className={props.focus ? 'iconfont focused' : 'iconfont'}>&#xe648;</i>
             {props.focus || props.mouseEnter ? (
               <SearchTips onMouseEnter={props.handleMouseEnter} onMouseLeave={props.handleMouseLeave}>
@@ -78,8 +82,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleFocus () {
-      dispatch(actionCreators.getSearchTrending())
+    handleFocus (searchTrendingList) {
+      searchTrendingList.length === 0 && dispatch(actionCreators.getSearchTrending())
       dispatch(actionCreators.searchFocus())
     },
     handleBlur () {
