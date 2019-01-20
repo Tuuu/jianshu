@@ -12,9 +12,23 @@ const searchBlur = () => ({
   type: actionTypes.SEARCH_BLUR,
 })
 
-const changeSearchTrending = (data) => ({
+const mouseEnter = () => ({
+  type: actionTypes.MOUSE_ENTER,
+})
+
+const mouseLeave = () => ({
+  type: actionTypes.MOUSE_LEAVE,
+})
+
+const changePage = (currentPage) => ({
+  type: actionTypes.CHANGE_PAGE,
+  currentPage,
+})
+
+const changeSearchTrending = data => ({
   type: actionTypes.SEARCH_TRENDING,
   data: fromJS(data), // 转换为 immutable 数据类型
+  totalPage: Math.ceil(data.length / 10),
 })
 
 // 异步 action 使用 redux-thunk
@@ -32,4 +46,4 @@ const getSearchTrending = () => {
   }
 }
 
-export { searchFocus, searchBlur, getSearchTrending }
+export { searchFocus, searchBlur, getSearchTrending, mouseEnter, mouseLeave, changePage }
