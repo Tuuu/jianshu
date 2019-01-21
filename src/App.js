@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import store from './store'
 import Header from './component/header'
+import Home from './page/home'
 import { GlobalStyle } from './style'
 class App extends Component {
   render () {
@@ -9,6 +10,7 @@ class App extends Component {
       <Provider store={store}>
         <GlobalStyle />
         <Header />
+        <Home />
       </Provider>
     )
   }
