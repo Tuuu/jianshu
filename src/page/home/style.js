@@ -20,4 +20,29 @@ const HomeRight = styled.section`
   width: 280px;
 `
 
-export { HomeWrapper, HomeLeft, HomeRight }
+const TopicWrapper = styled.div`
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+`
+
+const TopicItem = styled.div`
+  margin-right: 18px;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+  background-color: #f7f7f7;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  img {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+  }
+  span {
+    padding-right: 11px;
+    padding-left: 11px;
+    vertical-align: middle;
+  }
+`
+
+export { HomeWrapper, HomeLeft, HomeRight, TopicWrapper, TopicItem }
