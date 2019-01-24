@@ -5,9 +5,14 @@ const themeColor = '#ea6f5a'
 const hoverColor = '#ec6149'
 
 const HeaderWrapper = styled.header`
-  height: 57px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 58px;
   display: flex;
   align-items: center;
+  background: #fff;
   border-bottom: 1px solid #f0f0f0;
   & a {
     display: block;

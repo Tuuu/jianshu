@@ -21,10 +21,7 @@ class Topic extends Component {
 
 const mapStateToProps = state => {
   return {
-    topicList: state
-      .get('home')
-      .get('topicList')
-      .toJS(),
+    topicList: state.getIn(['home', 'topicList']).toJS(),
   }
 }
 
