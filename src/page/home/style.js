@@ -55,6 +55,7 @@ const ListItem = styled.section`
   border-bottom: 1px solid #f0f0f0;
   & .list-info {
     margin-right: 15px;
+    flex-grow: 1;
   }
   & h2 {
     margin-top: 0;
@@ -75,6 +76,7 @@ const ListItem = styled.section`
     width: 150px;
     height: 100px;
     display: block;
+    flex-shrink: 0;
     border-radius: 4px;
     border: 1px solid #f0f0f0;
   }
