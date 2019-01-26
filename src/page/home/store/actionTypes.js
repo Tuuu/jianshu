@@ -1,0 +1,3 @@
+const CHANGE_HOME_DATA = 'home/CHANGE_HOME_DATA'
+
+export { CHANGE_HOME_DATA }

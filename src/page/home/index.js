@@ -1,12 +1,18 @@
 // 主页
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import Topic from './component/Topic'
 import List from './component/List'
 import Recommend from './component/Recommend'
 import Writer from './component/Writer'
 import { HomeWrapper, HomeLeft, HomeRight } from './style'
+import * as actionCreator from './store/actionCreator'
 
 class Home extends Component {
+  componentDidMount () {
+    this.props.changeHomeData()
+  }
   render () {
     return (
       <HomeWrapper>
@@ -24,4 +30,18 @@ class Home extends Component {
   }
 }
 
-export default Home
+const mapDispatchToProps = dispatch => ({
+  changeHomeData () {
+    const action = actionCreator.getHomeData()
+    dispatch(action)
+  },
+})
+
+Home.propTypes = {
+  changeHomeData: PropTypes.func,
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Home)
