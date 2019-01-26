@@ -7,7 +7,7 @@ import List from './component/List'
 import Recommend from './component/Recommend'
 import Writer from './component/Writer'
 import { HomeWrapper, HomeLeft, HomeRight } from './style'
-import * as actionCreator from './store/actionCreator'
+import { actionCreator } from './store'
 
 class Home extends Component {
   componentDidMount () {
