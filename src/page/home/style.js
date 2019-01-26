@@ -96,4 +96,43 @@ const RecommendItem = styled.section`
   border-radius: 4px;
 `
 
-export { HomeWrapper, HomeLeft, HomeRight, TopicWrapper, TopicItem, ListItem, RecommendItem }
+const WriterTitle = styled.div`
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #969696;
+`
+
+const WriterItem = styled.div`
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  & .writer-avatar {
+    width: 48px;
+    height: 48px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  & .writer-name {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  & .writer-info {
+    margin-top: 2px;
+    margin-bottom: 0;
+    font-size: 12px;
+    color: #969696;
+    line-height: 1.5;
+    white-space: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+`
+
+export { HomeWrapper, HomeLeft, HomeRight, TopicWrapper, TopicItem, ListItem, RecommendItem, WriterTitle, WriterItem }

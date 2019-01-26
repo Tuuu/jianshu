@@ -72,6 +72,43 @@ const defaultState = fromJS({
       imgUrl: 'http://picsum.photos/560/100/?image=166',
     },
   ],
+  writerList: [
+    {
+      id: 1,
+      name: 'TheShy',
+      avatarUrl: 'https://picsum.photos/96/96/?image=345',
+      writerNum: 2000,
+      likeNum: 1000,
+    },
+    {
+      id: 2,
+      name: 'Ning',
+      avatarUrl: 'https://picsum.photos/96/96/?image=360',
+      writerNum: 211,
+      likeNum: 111,
+    },
+    {
+      id: 3,
+      name: 'Rookie',
+      avatarUrl: 'https://picsum.photos/96/96/?image=347',
+      writerNum: 220,
+      likeNum: 110,
+    },
+    {
+      id: 4,
+      name: 'JackeyLove',
+      avatarUrl: 'https://picsum.photos/96/96/?image=348',
+      writerNum: 2300,
+      likeNum: 1300,
+    },
+    {
+      id: 5,
+      name: 'Baolan',
+      avatarUrl: 'https://picsum.photos/96/96/?image=349',
+      writerNum: 200,
+      likeNum: 100,
+    },
+  ],
 })
 
 export default (state = defaultState, action) => {
