@@ -80,4 +80,20 @@ const ListItem = styled.section`
   }
 `
 
-export { HomeWrapper, HomeLeft, HomeRight, TopicWrapper, TopicItem, ListItem }
+const RecommendItem = styled.section`
+  margin-bottom: 10px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 30px;
+  width: 100%;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: bold;
+  color: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(${props => props.imgUrl});
+  border-radius: 4px;
+`
+
+export { HomeWrapper, HomeLeft, HomeRight, TopicWrapper, TopicItem, ListItem, RecommendItem }

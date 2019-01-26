@@ -45,6 +45,33 @@ const defaultState = fromJS({
       imgUrl: 'http://picsum.photos/300/200/?image=450',
     },
   ],
+  recommendList: [
+    {
+      id: 1,
+      content: '7日热门',
+      imgUrl: 'http://picsum.photos/560/100/?image=170',
+    },
+    {
+      id: 2,
+      content: '30日热门',
+      imgUrl: 'http://picsum.photos/560/100/?image=171',
+    },
+    {
+      id: 3,
+      content: '优选连载',
+      imgUrl: 'http://picsum.photos/560/100/?image=172',
+    },
+    {
+      id: 4,
+      content: '简书版权',
+      imgUrl: 'http://picsum.photos/560/100/?image=165',
+    },
+    {
+      id: 5,
+      content: '简书大学堂',
+      imgUrl: 'http://picsum.photos/560/100/?image=166',
+    },
+  ],
 })
 
 export default (state = defaultState, action) => {
