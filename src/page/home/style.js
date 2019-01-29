@@ -82,6 +82,25 @@ const ListItem = styled.section`
   }
 `
 
+const MoreButton = styled.button`
+  margin-top: 30px;
+  margin-bottom: 60px;
+  padding: 10px 15px;
+  width: 100%;
+  display: block;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+  background-color: #a5a5a5;
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    background-color: #9b9b9b;
+  }
+`
+
 const RecommendItem = styled.section`
   margin-bottom: 10px;
   padding-top: 13px;
@@ -137,4 +156,15 @@ const WriterItem = styled.div`
   }
 `
 
-export { HomeWrapper, HomeLeft, HomeRight, TopicWrapper, TopicItem, ListItem, RecommendItem, WriterTitle, WriterItem }
+export {
+  HomeWrapper,
+  HomeLeft,
+  HomeRight,
+  TopicWrapper,
+  TopicItem,
+  ListItem,
+  MoreButton,
+  RecommendItem,
+  WriterTitle,
+  WriterItem,
+}
