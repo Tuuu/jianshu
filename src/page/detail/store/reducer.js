@@ -1,20 +1,18 @@
-// import * as actionTypes from '../store/actionTypes'
+import * as actionTypes from '../store/actionTypes'
 import { fromJS } from 'immutable'
 
 const defaultState = fromJS({
-  title: 'TitleTitleTitleTitleTitle',
-  content: `
-    <img src="https://picsum.photos/500/300/?image=528" alt="" />
-    <p>
-      ContentContentContentContentContentContentContentContentContentContentContentContentContentContentContent
-    </p>
-    <p>
-      ContentContentContentContentContentContentContentContentContentContentContentContentContentContentContent
-    </p>`,
+  title: '',
+  content: '',
 })
 
 export default (state = defaultState, action) => {
   switch (action.type) {
+    case actionTypes.GET_DETAIL:
+      return state.merge({
+        title: action.data.title,
+        content: action.data.content,
+      })
     default:
       return state
   }

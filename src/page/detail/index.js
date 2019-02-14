@@ -3,9 +3,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { DetailWrapper, Title, Content } from './style'
+import { actionCreator } from './store'
 
 class Detail extends Component {
-  componentDidMount () {}
+  componentDidMount () {
+    this.props.getDetail()
+  }
   render () {
     return (
       <DetailWrapper>
@@ -21,12 +24,19 @@ const mapStateToProps = state => ({
   content: state.getIn(['detail', 'content']),
 })
 
+const mapDispatchToProps = dispatch => ({
+  getDetail () {
+    dispatch(actionCreator.getDetail())
+  },
+})
+
 Detail.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
+  getDetail: PropTypes.func,
 }
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(Detail)
