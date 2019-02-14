@@ -1,5 +1,6 @@
 // 主页
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { ListItem, MoreButton } from '../style'
@@ -9,13 +10,15 @@ class List extends Component {
     return (
       <section>
         {this.props.articleList.map(item => (
-          <ListItem key={item.id}>
-            <div className="list-info">
-              <h2 className="list-title">{item.title}</h2>
-              <p className="list-content">{item.content}</p>
-            </div>
-            <img className="list-img" src={item.imgUrl} alt="" />
-          </ListItem>
+          <Link to="/detail" key={item.id}>
+            <ListItem>
+              <div className="list-info">
+                <h2 className="list-title">{item.title}</h2>
+                <p className="list-content">{item.content}</p>
+              </div>
+              <img className="list-img" src={item.imgUrl} alt="" />
+            </ListItem>
+          </Link>
         ))}
         <MoreButton disabled={this.props.isLoading} onClick={() => this.props.getMoreArticleList(this.props.pageNum)}>
           加载更多

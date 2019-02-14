@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { CSSTransition } from 'react-transition-group'
 import { connect } from 'react-redux'
@@ -25,7 +26,9 @@ const Header = props => {
   const searchTrendingPageList = props.searchTrendingList.slice((props.currentPage - 1) * 10, props.currentPage * 10)
   return (
     <HeaderWrapper>
-      <Logo href="/" />
+      <Link className='logo' to="/">
+        <Logo />
+      </Link>
       <nav className="nav-ct">
         <NavItem className="active">首页</NavItem>
         <NavItem>下载App</NavItem>

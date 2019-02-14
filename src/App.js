@@ -11,11 +11,11 @@ class App extends Component {
     return (
       <Provider store={store}>
         <GlobalStyle />
-        <Header />
         <Router>
           <>
-            <Route exact path="/" render={props => (<Home {...props}/>)} />
-            <Route path="/detail" render={props => (<Detail {...props}/>)} />
+            <Header />
+            <Route exact path="/" render={props => <Home {...props} />} />
+            <Route path="/detail" render={props => <Detail {...props} />} />
           </>
         </Router>
       </Provider>

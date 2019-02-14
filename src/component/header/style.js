@@ -29,9 +29,12 @@ const HeaderWrapper = styled.header`
     text-align: center;
     cursor: pointer;
   }
+  & .logo {
+    height: 100%;
+  }
 `
 
-const Logo = styled.a`
+const Logo = styled.div`
   width: 100px;
   height: 100%;
   background-image: url(${logo});
