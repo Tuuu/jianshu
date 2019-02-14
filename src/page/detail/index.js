@@ -1,5 +1,7 @@
 // 主页
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { DetailWrapper, Title, Content } from './style'
 
 class Detail extends Component {
@@ -7,22 +9,24 @@ class Detail extends Component {
   render () {
     return (
       <DetailWrapper>
-        <Title>TitleTitleTitleTitleTitle</Title>
-        <Content>
-          <img src="https://picsum.photos/500/300/?image=528" alt="" />
-          <p>
-            ContentContentContentContentContentContentContentContentContentContentContentContentContentContentContent
-          </p>
-          <p>
-            ContentContentContentContentContentContentContentContentContentContentContentContentContentContentContent
-          </p>
-          <p>
-            ContentContentContentContentContentContentContentContentContentContentContentContentContentContentContent
-          </p>
-        </Content>
+        <Title>{this.props.title}</Title>
+        <Content dangerouslySetInnerHTML={{ __html: this.props.content }} />
       </DetailWrapper>
     )
   }
 }
 
-export default Detail
+const mapStateToProps = state => ({
+  title: state.getIn(['detail', 'title']),
+  content: state.getIn(['detail', 'content']),
+})
+
+Detail.propTypes = {
+  title: PropTypes.string,
+  content: PropTypes.string,
+}
+
+export default connect(
+  mapStateToProps,
+  null
+)(Detail)
