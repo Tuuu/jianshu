@@ -7,7 +7,7 @@ import { actionCreator } from './store'
 
 class Detail extends Component {
   componentDidMount () {
-    this.props.getDetail()
+    this.props.getDetail(this.props.match.params.id)
   }
   render () {
     return (
@@ -25,8 +25,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getDetail () {
-    dispatch(actionCreator.getDetail())
+  getDetail (id) {
+    dispatch(actionCreator.getDetail(id))
   },
 })
 
@@ -34,6 +34,7 @@ Detail.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
   getDetail: PropTypes.func,
+  match: PropTypes.object,
 }
 
 export default connect(

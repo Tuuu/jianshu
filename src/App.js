@@ -15,7 +15,7 @@ class App extends Component {
           <>
             <Header />
             <Route exact path="/" render={props => <Home {...props} />} />
-            <Route path="/detail" render={props => <Detail {...props} />} />
+            <Route path="/detail/:id" render={props => <Detail {...props} />} />
           </>
         </Router>
       </Provider>

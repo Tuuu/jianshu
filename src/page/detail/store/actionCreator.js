@@ -6,10 +6,10 @@ const changeDetail = data => ({
   data,
 })
 
-export const getDetail = () => {
+export const getDetail = id => {
   return dispatch => {
     axios
-      .get('https://www.easy-mock.com/mock/5c403cb5f9530c0a253d8b0c/jianshu/detail')
+      .get(`https://www.easy-mock.com/mock/5c403cb5f9530c0a253d8b0c/jianshu/detail?id=${id}`)
       .then(res => {
         dispatch(changeDetail(res.data.data))
       })

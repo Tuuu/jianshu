@@ -10,7 +10,7 @@ class List extends Component {
     return (
       <section>
         {this.props.articleList.map(item => (
-          <Link to="/detail" key={item.id}>
+          <Link to={`/detail/${item.id}`} key={item.id}>
             <ListItem>
               <div className="list-info">
                 <h2 className="list-title">{item.title}</h2>
