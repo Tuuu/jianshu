@@ -1,6 +1,7 @@
 // 主页
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { DetailWrapper, Title, Content } from './style'
 import { actionCreator } from './store'
@@ -40,4 +41,4 @@ Detail.propTypes = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Detail)
+)(withRouter(Detail))
